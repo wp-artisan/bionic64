@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
-  config.vm.box = "ubuntu/bionic64"
+  config.vm.box = "wp-artisan/bionic64"
   config.vm.box_version = "2.0.0"
 
   # Disable automatic box update checking. If you disable this, then
@@ -45,6 +45,7 @@ Vagrant.configure("2") do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   config.vm.synced_folder "site", "/var/www/html"
+  owner: "www-data", group: "www-data", :mount_options => ['dmode=777','fmode=777']
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
